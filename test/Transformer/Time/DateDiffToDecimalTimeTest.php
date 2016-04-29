@@ -2,6 +2,9 @@
 
 use chilimatic\lib\Transformer\Time\DateDiffToDecimalTime;
 
+/**
+ * Class DateDiffToDecimalTimeTest
+ */
 class DateDiffToDecimalTimeTest extends PHPUnit_Framework_TestCase
 {
     /**
