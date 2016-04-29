@@ -1,0 +1,30 @@
+{
+  "name": "chilimatic/transformer-component",
+  "description": "transformer component for the chilimatic-framework",
+  "type": "library",
+  "license": "MIT",
+  "version": "1.0.0",
+  "authors": [
+      {
+          "name": "Jakob Oberhummer",
+          "email": "office@chilimatic.com"
+      }
+  ],
+  "minimum-stability": "stable",
+  "require": {
+    "php": ">=5.4",
+    "chilimatic/interfaces-component" : "1.*"
+  },
+  "require-dev": {
+      "phpunit/phpunit": "4.5.*"
+  },
+  "config": {
+    "bin-dir": "bin/",
+    "vendor-dir": "vendor"
+  },
+  "autoload": {
+        "psr-4": {
+            "chilimatic\\lib\\Transformer\\" : "src/"
+        }
+    }
+}
