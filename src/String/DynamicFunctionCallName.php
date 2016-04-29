@@ -45,7 +45,7 @@ class DynamicFunctionCallName implements IFlyWeightTransformer
      */
     public function transform($content, $options = [])
     {
-        if (!$content) {
+        if (!$content || !is_string($content)) {
             return $content;
         }
 

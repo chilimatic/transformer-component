@@ -1,5 +1,5 @@
 <?php
-namespace chilimatic\lib\transformer\time;
+namespace chilimatic\lib\Transformer\Time;
 
 use chilimatic\lib\Interfaces\IFlyWeightTransformer;
 
@@ -21,6 +21,10 @@ class DateDiffToDecimalTime implements IFlyWeightTransformer
      */
     public function transform($content, $options = [])
     {
+        if (!$content instanceof \DateInterval) {
+            return 0;
+        }
+
         $decTime = 0;
         $decTime += ($content->d ? $content->d * 60 * 24 : 0);
         $decTime += ($content->h ? $content->h * 60 : 0);
