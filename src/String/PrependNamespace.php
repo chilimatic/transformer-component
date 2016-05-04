@@ -6,7 +6,7 @@ use chilimatic\lib\Interfaces\IFlyWeightTransformer;
  * Class AnnotationValidatorPrependNameSpace
  * @package chilimatic\lib\Transformer\String
  */
-class AnnotationValidatorPrependNameSpace implements IFlyWeightTransformer
+class PrependNamespace implements IFlyWeightTransformer
 {
     /**
      * @var string
