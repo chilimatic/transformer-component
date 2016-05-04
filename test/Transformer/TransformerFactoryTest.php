@@ -43,6 +43,24 @@ class TransformerFactoryTest extends PHPUnit_Framework_TestCase
         self::assertInstanceOf('\chilimatic\lib\Transformer\String\DynamicSQLParameter', $transformer);
     }
 
+    /**
+     * @test
+     */
+    public function factoryReturnsTransformerBasedOnAbsoluteNamespaceAndClassNameWithMultipleCalls()
+    {
+        $factory = new TransformerFactory();
+        try {
+            $factory->make('\chilimatic\lib\Transformer\String\DynamicSQLParameter', []);
+            $transformer = $factory->make('\chilimatic\lib\Transformer\String\DynamicSQLParameter', []);
+        } catch (\Exception $e) {
+            self::fail('Exception was thrown in ' . $e->getMessage());
+            return;
+        }
+
+        self::assertInstanceOf('\chilimatic\lib\Transformer\String\DynamicSQLParameter', $transformer);
+    }
+
+
 
     /**
      * @test
@@ -55,5 +73,5 @@ class TransformerFactoryTest extends PHPUnit_Framework_TestCase
 
         self::assertNull($transformer);
     }
-    
+
 }

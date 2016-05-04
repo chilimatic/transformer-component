@@ -36,7 +36,7 @@ class TransformerFactory implements IFactoryOptions
         }
 
         if (isset($this->objTemplates[$name])) {
-            return clone $this->objTemplates;
+            return clone $this->objTemplates[$name];
         }
 
         if (!$this->namespaceTransformer) {
