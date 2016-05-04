@@ -1,6 +1,6 @@
 <?php
 
-use chilimatic\lib\Transformer\String\AnnotationValidatorPrependNameSpace;
+use chilimatic\lib\Transformer\String\PrependNamespace;
 
 /**
  * Class AnnotationValidatorPrependNamespaceTest
@@ -13,7 +13,7 @@ class AnnotationValidatorPrependNamespaceTest extends PHPUnit_Framework_TestCase
      */
     public function checkIfFlyWeightInterfaceIsImplemented()
     {
-        $transformer = new AnnotationValidatorPrependNameSpace();
+        $transformer = new PrependNamespace();
 
         self::assertInstanceOf('\chilimatic\lib\Interfaces\IFlyWeightTransformer', $transformer);
     }
@@ -23,7 +23,7 @@ class AnnotationValidatorPrependNamespaceTest extends PHPUnit_Framework_TestCase
      */
     public function checkTransformerWithEmptyString() 
     {
-        $transformer = new AnnotationValidatorPrependNameSpace();
+        $transformer = new PrependNamespace();
 
         $string = $transformer->transform('');
         
@@ -35,7 +35,7 @@ class AnnotationValidatorPrependNamespaceTest extends PHPUnit_Framework_TestCase
      */
     public function checkTransformerWithClassNameNoNamespaceString()
     {
-        $transformer = new AnnotationValidatorPrependNameSpace();
+        $transformer = new PrependNamespace();
 
         $string = $transformer->transform('MyClass');
 
@@ -47,12 +47,12 @@ class AnnotationValidatorPrependNamespaceTest extends PHPUnit_Framework_TestCase
      */
     public function checkTransformerWithClassNameWithNamespaceString()
     {
-        $transformer = new AnnotationValidatorPrependNameSpace();
+        $transformer = new PrependNamespace();
 
         $string = $transformer->transform(
             'MyClass',
             [
-                AnnotationValidatorPrependNameSpace::NAMESPACE_OPTION_INDEX => 'test'
+                PrependNamespace::NAMESPACE_OPTION_INDEX => 'test'
             ]
         );
 
@@ -64,7 +64,7 @@ class AnnotationValidatorPrependNamespaceTest extends PHPUnit_Framework_TestCase
      */
     public function checkInvokeTransformerWithEmptyString()
     {
-        $transformer = new AnnotationValidatorPrependNameSpace();
+        $transformer = new PrependNamespace();
         $string = $transformer('');
 
         self::assertEquals('', $string);
