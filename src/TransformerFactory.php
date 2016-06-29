@@ -29,7 +29,7 @@ class TransformerFactory implements IFactoryOptions
      * @param array $options
      * @return IFlyWeightTransformer|null
      */
-    public function make($name, $options)
+    public function make(string $name, $options)
     {
         if (!$name || !is_string($name)) {
             return null;
@@ -60,7 +60,7 @@ class TransformerFactory implements IFactoryOptions
      *
      * @return IFlyWeightTransformer|null
      */
-    public function __invoke($name, $options)
+    public function __invoke(string $name, $options)
     {
         return $this->make($name, $options);
     }

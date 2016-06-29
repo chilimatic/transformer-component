@@ -19,7 +19,7 @@ class DateDiffToDecimalTime implements IFlyWeightTransformer
      *
      * @return string
      */
-    public function transform($content, $options = [])
+    public function transform($content, $options = []) : string
     {
         if (!$content instanceof \DateInterval) {
             return 0;
@@ -40,7 +40,7 @@ class DateDiffToDecimalTime implements IFlyWeightTransformer
      *
      * @return string
      */
-    public function __invoke($content, $options = [])
+    public function __invoke($content, $options = []) : string
     {
         return $this->transform($content, $options);
     }

@@ -33,7 +33,8 @@ class DynamicFunctionCallName implements IFlyWeightTransformer
      *
      * @return string
      */
-    public function __invoke($content, $options = []) {
+    public function __invoke($content, $options = [])
+    {
         return $this->transform($content);
     }
 

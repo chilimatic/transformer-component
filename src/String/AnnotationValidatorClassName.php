@@ -21,7 +21,8 @@ class AnnotationValidatorClassName implements IFlyWeightTransformer
      *
      * @return string
      */
-    public function __invoke($content, $options = []) {
+    public function __invoke($content, $options = [])
+    {
         return $this->transform($content);
     }
 
@@ -43,7 +44,7 @@ class AnnotationValidatorClassName implements IFlyWeightTransformer
         }
 
         // get the last character after the last backslash and set it to uppercase
-        if (($pos = strrpos($content, self::NAMESPACE_DELIMITER)) !== false) {
+        if (($pos = (int) strrpos($content, self::NAMESPACE_DELIMITER)) !== false) {
             $content[$pos+1] = ucfirst($content[$pos+1]);
         }
 
